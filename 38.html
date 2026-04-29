@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>W3Schools Style Form</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; display: flex; flex-direction: column; align-items: center;">
+
+    <div style="border: 1px solid #ddd; width: 500px; background-color: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+        
+        <h2 style="text-align: center; margin-top: 0; margin-bottom: 30px;">Create Account</h2>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+            <input type="text" id="fname" placeholder="First Name" style="flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; outline: none;">
+            <input type="text" id="lname" placeholder="Last Name" style="flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; outline: none;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <input type="text" id="country" placeholder="Country" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; box-sizing: border-box; outline: none;">
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+            <input type="text" id="email" placeholder="Email Address" style="flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; outline: none;">
+            <input type="text" id="phone" placeholder="Phone Number" style="flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; outline: none;">
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+            <input type="password" id="pass" placeholder="Password" style="flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; outline: none;">
+            <input type="password" id="cpass" placeholder="Confirm Password" style="flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; outline: none;">
+        </div>
+
+        <div style="margin: 20px 0; font-size: 14px; color: #555;">
+            <input type="checkbox" id="terms" checked> Terms and Condition
+        </div>
+
+        <button onclick="createAccount()" style="background-color: #3b82f6; color: white; border: none; padding: 14px; border-radius: 5px; cursor: pointer; display: block; width: 100%; font-size: 16px; font-weight: bold;">
+            Create
+        </button>
+
+    </div>
+
+    <div id="display-hasil" style="width: 500px; margin-top: 20px; display: none; background-color: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px;">Result:</h3>
+        <p id="output" style="line-height: 1.6;"></p>
+    </div>
+
+    <script>
+        function createAccount() {
+            var namaDepan = document.getElementById("fname").value;
+            var namaBelakang = document.getElementById("lname").value;
+            var negara = document.getElementById("country").value;
+            var email = document.getElementById("email").value;
+            var hp = document.getElementById("phone").value;
+            var p1 = document.getElementById("pass").value;
+            var p2 = document.getElementById("cpass").value;
+            var setuju = document.getElementById("terms").checked;
+
+            var teks = "";
+            teks += "<b>Name:</b> " + namaDepan + " " + namaBelakang + "<br>";
+            teks += "<b>Country:</b> " + negara + "<br>";
+            teks += "<b>Email:</b> " + email + "<br>";
+            teks += "<b>Phone:</b> " + hp + "<br>";
+            teks += "<b>Terms:</b> " + (setuju ? "Accepted" : "Not Accepted") + "<br>";
+
+            if (p1 === "" || p2 === "") {
+                teks += "<b>Password Status:</b> Tolong isi password";
+            } else if (p1 === p2) {
+                teks += "<b>Password Status:</b> <span style='color:green;'>Password sama</span>";
+            } else {
+                teks += "<b>Password Status:</b> <span style='color:red;'>Password tidak sama</span>";
+            }
+
+            document.getElementById("display-hasil").style.display = "block";
+            document.getElementById("output").innerHTML = teks;
+        }
+    </script>
+
+</body>
+</html>

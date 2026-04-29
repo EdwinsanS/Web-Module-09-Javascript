@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Javascript 24</title>
+</head>
+<body>
+
+<script>
+	var ronde = 1;
+	var userScore = 0;
+	var computerScore = 0;
+
+	while (ronde <= 3) {
+	    var user = prompt("Ronde " + ronde + "\nPilih: batu, gunting, atau kertas");
+
+	    if (user === "batu" || user === "gunting" || user === "kertas") {
+
+	        var rand = Math.floor(Math.random() * 3);
+	        var computer;
+
+	        if (rand === 0) {
+	            computer = "batu";
+	        } else if (rand === 1) {
+	            computer = "gunting";
+	        } else {
+	            computer = "kertas";
+	        }
+
+	        var hasil;
+
+	        if (user === computer) {
+	            hasil = "Draw";
+	        } else if (
+	            (user === "batu" && computer === "gunting") ||
+	            (user === "gunting" && computer === "kertas") ||
+	            (user === "kertas" && computer === "batu")
+	        ) {
+	            hasil = "User Wins";
+	            userScore++;
+	        } else {
+	            hasil = "Computer Wins";
+	            computerScore++;
+	        }
+
+	        console.log("User " + user + " vs Computer " + computer + " = " + hasil);
+
+	        ronde++; 
+
+	    } else {
+	        console.log("Input tidak valid, masukkan lagi!");
+	    }
+	}
+
+
+	if (userScore > computerScore) {
+	    console.log("User wins the game!");
+	} else if (computerScore > userScore) {
+	    console.log("Computer wins the game!");
+	} else {
+	    console.log("Game Draw!");
+	}
+</script>
+
+</body>
+</html>

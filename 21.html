@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Javascript 21</title>
+</head>
+<body>
+
+<script>
+	var listElectric = "list of electric : ";
+	var listWater = "list of water : ";
+	var pokemon;
+	var nama;
+
+	for (var i = 1; i <= 3; i++) {
+		pokemon = prompt("Masukkan nama Pokemon ke-" + i + ":");
+
+
+		nama = pokemon;
+		
+		if (nama === "pikachu" || nama === "raichu" || nama === "elekid") {
+			listElectric = listElectric + pokemon + ", ";
+		} 
+		else if (nama === "squirtle" || nama === "lapras" || nama === "greninja") {
+			listWater = listWater + pokemon + ", ";
+		}
+	}
+
+	console.log(listElectric);
+	console.log(listWater);
+</script>
+
+</body>
+</html>

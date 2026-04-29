@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Javascript 20</title>
+</head>
+<body>
+
+<script>
+	var pokemon;
+	var nama;
+
+	for (var i = 1; i <= 3; i++) {
+		pokemon = prompt("Masukkan nama Pokemon ke-" + i );
+
+		nama = pokemon;
+
+		if (nama === "pikachu" || nama === "raichu" || nama === "elekid") {
+			console.log(pokemon + " is an electric type pokemon");
+		} 
+		else if (nama === "squirtle" || nama === "lapras" || nama === "greninja") {
+			console.log(pokemon + " is a water type pokemon");
+		} 
+	}	
+</script>
+
+</body>
+</html>
